@@ -14,20 +14,23 @@
   <h2>Panorama da Escola</h2>
 
   <div class="box dashboard">
-    <div class="kpis">
-      <div class="kpi" id="totalAlunos"></div>
-      <div class="kpi" id="comHabilidades"></div>
+    <h3>Panorama Geral (Alunos)</h3>
+    <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+      <button onclick="alternarGrafico('areas')" class="btn-voltar" id="btnAreas">Ver Áreas</button>
+      <button onclick="alternarGrafico('habilidades')" class="btn-voltar" id="btnHabs">Habilidades Técnicas</button>
     </div>
 
-    <div class="graficos">
-      <div class="grafico-box">
-        <canvas id="graficoAreas"></canvas>
-      </div>
-      <div class="grafico-box">
-        <canvas id="graficoHabilidades"></canvas>
-      </div>
+    <div class="grafico-container" style="position: relative; height:35vh; width:100%">
+        <canvas id="graficoEscola"></canvas>
     </div>
-  </div>
+</div>
+
+<div class="box dashboard" style="margin-top: 20px;">
+    <h3>Média Pedagógica da Turma (Soft Skills)</h3>
+    <div class="grafico-container" style="position: relative; height:40vh; width:100%">
+        <canvas id="graficoPedagogico"></canvas>
+    </div>
+</div>
 
   <div class="box">
     <h3>Avaliação Individual</h3>

@@ -5,42 +5,29 @@
  */
 function verificarAcesso() {
     const perfil = localStorage.getItem("usuarioLogado");
-    const urlAtual = window.location.pathname;
+    const caminhoDesejado = window.location.pathname;
 
-    // 1. Se não houver ninguém logado, manda para o login 
-    // (exceto se já estiver na index ou no próprio login)
-    if (!perfil && !urlAtual.includes("login.html") && !urlAtual.includes("index.html")) {
+    // Se o usuário já estiver logado, não fazemos nada, permitimos o acesso.
+    if (perfil) return;
+
+    // LISTA DE EXCEÇÕES: Páginas que QUALQUER UM pode ver sem estar logado
+    const paginasPublicas = [
+        "index.html", 
+        "login.html", 
+        "cadastro.html", // se você tiver uma página de cadastro
+        "/"              // Representa a raiz (home) do site no GitHub Pages
+    ];
+
+    // Verifica se a página atual está na lista de exceções
+    const ehPaginaPublica = paginasPublicas.some(pagina => caminhoDesejado.endsWith(pagina));
+
+    // Se NÃO for uma página pública e o usuário NÃO estiver logado, manda para o login
+    if (!ehPaginaPublica) {
         window.location.href = "login.html";
-        return;
-    }
-
-    // 2. Regras para o ALUNO
-    if (perfil === "aluno") {
-        const paginasProibidas = ["empresa.html", "escola.html", "aluno-detalhe.html"];
-        if (paginasProibidas.some(p => urlAtual.includes(p))) {
-            alert("Acesso restrito para Empresas ou Escolas.");
-            window.location.href = "index.html";
-        }
-    }
-
-    // 3. Regras para a EMPRESA
-    if (perfil === "empresa") {
-        const paginasProibidas = ["aluno.html", "escola.html"];
-        if (paginasProibidas.some(p => urlAtual.includes(p))) {
-            alert("Acesso restrito à área de recrutamento.");
-            window.location.href = "empresa.html";
-        }
     }
 }
 
-/*** Função de Logout acessível em todo o sistema***/
-function logout() {
-    localStorage.removeItem("usuarioLogado");
-    localStorage.removeItem("alunoSelecionado"); // Limpa seleção por segurança
-    window.location.href = "login.html";
-}
-
-// Executa a verificação assim que o script é carregado
+// Executa a verificação assim que o script carrega
 verificarAcesso();
 
 // Ocultar cards não permitidos na index
