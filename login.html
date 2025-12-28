@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Acesso ao Sistema</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos adicionais para o login e cadastro */
+        #areaLogin button, #areaCadastro button {
+            cursor: pointer;
+            border: none;
+            display: block;
+            margin: 10px auto;
+        }
+        .input-padrao {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="index.html" class="btn-voltar">← Voltar para Início</a>
+</nav>
+
+<main class="box" style="max-width: 400px; margin: 50px auto;">
+    <div id="areaLogin">
+        <h2>Entrar no Sistema</h2>
+        <input type="text" id="userLogin" class="input-padrao" placeholder="Usuário">
+        <input type="password" id="passLogin" class="input-padrao" placeholder="Senha">
+        
+        <button onclick="realizarLogin()" class="card" style="padding: 15px; width: 100%;">
+            Entrar
+        </button>
+        
+        <p style="text-align: center; margin-top: 15px;">
+            Não tem conta? <a href="javascript:void(0)" onclick="alternarTelas()">Cadastre-se aqui</a>
+        </p>
+    </div>
+
+    <div id="areaCadastro" style="display: none;">
+        <h2>Criar Nova Conta</h2>
+        
+        <label style="font-size: 0.8rem; font-weight: bold; display: block; margin-bottom: 5px;">Escolha seu Perfil:</label>
+        <select id="perfilNovo" class="input-padrao">
+            <option value="aluno">Sou Aluno</option>
+            <option value="escola">Sou Escola</option>
+            <option value="empresa">Sou Empresa</option>
+        </select>
+
+        <input type="text" id="userNovo" class="input-padrao" placeholder="Defina um Usuário">
+        <input type="password" id="passNovo" class="input-padrao" placeholder="Defina uma Senha">
+        
+        <button onclick="cadastrarUsuario()" class="card" style="padding: 15px; width: 100%;">
+            Criar Conta
+        </button>
+        
+        <p style="text-align: center; margin-top: 15px;">
+            <a href="javascript:void(0)" onclick="alternarTelas()">Voltar para Login</a>
+        </p>
+    </div>
+</main>
+
+<script>
+// Limpa qualquer tentativa de bloqueio da validação.js nesta página específica
+localStorage.removeItem("alunoSelecionado");
+
+function alternarTelas() {
+    const login = document.getElementById('areaLogin');
+    const cadastro = document.getElementById('areaCadastro');
+    if (login.style.display === 'none') {
+        login.style.display = 'block';
+        cadastro.style.display = 'none';
+    } else {
+        login.style.display = 'none';
+        cadastro.style.display = 'block';
+    }
+}
+
+function cadastrarUsuario() {
+    const user = document.getElementById('userNovo').value.trim();
+    const pass = document.getElementById('passNovo').value.trim();
+    const perfil = document.getElementById('perfilNovo').value;
+
+    if (!user || !pass) {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    
+    if (usuarios.find(u => u.user === user)) {
+        alert("Este usuário já existe!");
+        return;
+    }
+
+    usuarios.push({ user, pass, perfil });
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    
+    alert("Conta criada com sucesso! Agora faça login.");
+    alternarTelas();
+}
+
+function realizarLogin() {
+    const user = document.getElementById('userLogin').value.trim();
+    const pass = document.getElementById('passLogin').value.trim();
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    const usuarioEncontrado = usuarios.find(u => u.user === user && u.pass === pass);
+
+    if (usuarioEncontrado) {
+        // Define o perfil logado no sistema
+        localStorage.setItem("usuarioLogado", usuarioEncontrado.perfil);
+        
+        // Redirecionamento baseado no perfil
+        if (usuarioEncontrado.perfil === 'aluno') {
+            window.location.href = "aluno.html";
+        } else if (usuarioEncontrado.perfil === 'escola') {
+            window.location.href = "escola.html";
+        } else if (usuarioEncontrado.perfil === 'empresa') {
+            window.location.href = "empresa.html";
+        }
+    } else {
+        alert("Usuário ou senha incorretos!");
+    }
+}
+</script>
+<script src="js/seed.js"></script>
+</body>
+</html>

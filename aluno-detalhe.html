@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil do Aluno</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/validacao.js"></script>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="index.html" id="btnVoltarDinamico" class="btn-voltar">← Voltar</a>
+
+    <button onclick="logout()" class="btn-voltar" style="background: var(--escuro); color: white;">Sair</button>
+
+    <script>
+    function logout() {
+        localStorage.removeItem("usuarioLogado");
+        window.location.href = "login.html";
+    }
+    </script>
+</nav>
+
+<main class="box">
+    <h2>Perfil Profissional</h2>
+    
+    <div id="detalheAluno" class="perfil-info">
+        <p>Carregando dados...</p>
+    </div>
+
+    <hr>
+
+    <div id="containerGraficoEmpresa" class="radar-container">
+        <h3 style="text-align: center;">Habilidades Comportamentais</h3>
+        
+        <canvas id="graficoRadarIndividual"></canvas>
+        
+        <p id="msgAvisoAvaliacao" style="display:none; text-align:center; color: #666; font-style: italic; padding: 20px;">
+            ⚠️ Perfil comportamental em processo de avaliação pela instituição.
+        </p>
+    </div>
+
+    <div id="areaExclusivaEscola" class="perfil-pedagogico" style="display: none;">
+        <h3>Painel de Avaliação Pedagógica</h3>
+        <p>Atribua notas de 1 a 5 para as soft skills do aluno:</p>
+        
+        <div class="notas-grid">
+            <label>Comunicação: 
+                <input type="range" id="n1" min="1" max="5" value="3">
+            </label>
+            <label>Proatividade: 
+                <input type="range" id="n2" min="1" max="5" value="3">
+            </label>
+            <label>Trabalho em Equipe: 
+                <input type="range" id="n3" min="1" max="5" value="3">
+            </label>
+        </div>
+        
+        <button onclick="salvarAvaliacao()" class="btn-voltar" style="width: 100%; margin-top: 10px;">
+            Salvar Avaliação
+        </button>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/aluno-detalhe.js"></script>
+</body>
+</html>

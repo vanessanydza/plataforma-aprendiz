@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Área da Empresa</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/validacao.js"></script>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html" class="btn-voltar">← Voltar</a>
+
+  <button onclick="logout()" class="btn-voltar" style="background: var(--escuro); color: white;">Sair</button>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "login.html";
+    }
+  </script>
+
+</nav>
+
+<h2>Perfis de Alunos</h2>
+
+<input type="text" id="filtroArea" placeholder="Filtrar por área">
+<button onclick="filtrar()">Filtrar</button>
+
+<div id="listaAlunos"></div>
+
+<script src="js/empresa.js"></script>
+</body>
+</html>

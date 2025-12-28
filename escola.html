@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Escola</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/validacao.js"></script>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="index.html" class="btn-voltar">← Voltar</a>
+  </nav>
+
+  <h2>Panorama da Escola</h2>
+
+  <div class="box dashboard">
+    <div class="kpis">
+      <div class="kpi" id="totalAlunos"></div>
+      <div class="kpi" id="comHabilidades"></div>
+    </div>
+
+    <div class="graficos">
+      <div class="grafico-box">
+        <canvas id="graficoAreas"></canvas>
+      </div>
+      <div class="grafico-box">
+        <canvas id="graficoHabilidades"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>Avaliação Individual</h3>
+    <p>Selecione o aluno para gerenciar a nota pedagógica:</p>
+    
+    <div style="display: flex; gap: 10px; margin-top: 15px;">
+      <select id="selectAlunoEscola" style="flex: 1; padding: 12px; border-radius: 10px; border: 1px solid var(--roxo); font-size: 1rem;">
+        <option value="">Escolha um aluno...</option>
+      </select>
+      
+      <button onclick="irParaAvaliacao()" class="btn-voltar" style="margin: 0;">Avaliar</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
