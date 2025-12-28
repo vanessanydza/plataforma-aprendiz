@@ -176,12 +176,19 @@ function renderizarSelectEscola() {
     if (!select) return;
 
     select.innerHTML = '<option value="">Escolha um aluno...</option>';
+
+    // Ordena para facilitar a vida do professor
     const alunosOrdenados = [...alunos].sort((a, b) => a.nome.localeCompare(b.nome));
 
     alunosOrdenados.forEach(aluno => {
         const option = document.createElement("option");
         option.value = aluno.cpf;
-        const status = aluno.avaliacoes ? "✅" : "⏳";
+
+        const notas = aluno.avaliacoes;
+        const jaAvaliado = notas && (notas.comunicacao > 0 || notas.proatividade > 0 || notas.trabalhoEquipe > 0);
+        
+        const status = jaAvaliado ? "✅" : "⏳";
+        
         option.textContent = `${status} ${aluno.nome}`;
         select.appendChild(option);
     });
