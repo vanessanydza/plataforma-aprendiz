@@ -76,37 +76,73 @@ function renderizarGraficoAlternavel(tipo) {
             }
         };
     } else {
-        // Dados de Habilidades Técnicas (Cadastradas pelos alunos)
+        // --- GRÁFICO DE HABILIDADES DOS ALUNOS (TOP 10) ---
         const contagemHabs = {};
+        
         alunos.forEach(aluno => {
-            if (aluno.habilidades && Array.isArray(aluno.habilidades)) {
-                aluno.habilidades.forEach(hab => {
-                    const h = hab.trim().toUpperCase();
-                    if (h) contagemHabs[h] = (contagemHabs[h] || 0) + 1;
-                });
+            // Tenta buscar o campo em várias nomenclaturas possíveis por segurança
+            let campoBruto = aluno.habilidades || aluno.habilidade || aluno.skills || "";
+            let listaHabs = [];
+
+            if (Array.isArray(campoBruto)) {
+                listaHabs = campoBruto;
+            } else if (typeof campoBruto === 'string') {
+                // Divide por vírgula, ponto e vírgula ou espaço e remove vazios
+                listaHabs = campoBruto.split(/[,;]+/).map(h => h.trim()).filter(h => h !== "");
             }
+
+            listaHabs.forEach(hab => {
+                const h = hab.toUpperCase(); 
+                if (h) {
+                    contagemHabs[h] = (contagemHabs[h] || 0) + 1;
+                }
+            });
         });
 
-        // Pega as top 6 habilidades
-        const labels = Object.keys(contagemHabs).sort((a,b) => contagemHabs[b] - contagemHabs[a]).slice(0, 6);
-        const valores = labels.map(l => contagemHabs[l]);
+        // ORDENAÇÃO: Transforma o objeto em array, ordena do maior para o menor
+        const habilidadesOrdenadas = Object.keys(contagemHabs)
+            .sort((a, b) => contagemHabs[b] - contagemHabs[a]);
+
+        // SELEÇÃO: Pega as 10 melhores habilidades
+        const top10Labels = habilidadesOrdenadas.slice(0, 10);
+        const top10Valores = top10Labels.map(h => contagemHabs[h]);
 
         config = {
             type: "bar",
             data: {
-                labels: labels,
+                labels: top10Labels,
                 datasets: [{
-                    label: "Frequência nas Hard Skills",
-                    data: valores,
-                    backgroundColor: "#ffcc00",
-                    borderRadius: 8
+                    label: "Quantidade de Alunos",
+                    data: top10Valores,
+                    backgroundColor: "#5981FF",
+                    borderRadius: 5
                 }]
             },
             options: { 
                 responsive: true, 
                 maintainAspectRatio: false,
-                indexAxis: 'y', // Barra horizontal para melhor leitura
-                plugins: { legend: { display: false } }
+                indexAxis: 'y', // Mantém horizontal para leitura fácil
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Top 10 Habilidades Técnicas'
+                    }
+                },
+                scales: {
+                    x: { 
+                        beginAtZero: true, 
+                        ticks: { 
+                            stepSize: 1,
+                            precision: 0 // Garante que não apareça "0.5" alunos
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            autoSkip: false // Garante que nenhum nome seja "pulado"
+                        }
+                    }
+                }
             }
         };
     }
@@ -142,8 +178,8 @@ function renderizarGraficoPedagogico() {
                 label: "Média Comportamental da Turma",
                 data: dadosMedios,
                 backgroundColor: "rgba(0, 255, 136, 0.2)",
-                borderColor: "#00ff88",
-                borderWidth: 3,
+                borderColor: "#5981FF",
+                borderWidth: 2,
                 pointBackgroundColor: "#fff"
             }]
         },
