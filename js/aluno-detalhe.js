@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btnVoltar.innerText = "← Voltar para Lista de Talentos";
     }
 
-    /**
+  /**
      * 3. RENDERIZAÇÃO DOS DADOS DO PERFIL
      */
     containerInfo.innerHTML = `
@@ -47,11 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
             <p><strong>Nome:</strong> ${aluno.nome}</p>
             <p><strong>Idade:</strong> ${aluno.idade} anos</p>
             <p><strong>CPF:</strong> ${aluno.cpf}</p>
+            <p><strong>Endereço:</strong> ${aluno.endereco || "Não informado"}</p>
             <p><strong>E-mail:</strong> ${aluno.email}</p>
             <p><strong>Área de Interesse:</strong> ${aluno.area}</p>
             <p><strong>Curso/Período:</strong> ${aluno.curso_periodo}</p>
             <p><strong>Idiomas:</strong> ${aluno.idiomas}</p>
-            <p><strong>Habilidades:</strong> ${aluno.habilidades ? aluno.habilidades.join(", ") : 'Não informadas'}</p>
+            <p><strong>Habilidades:</strong> ${aluno.habilidades ? (Array.isArray(aluno.habilidades) ? aluno.habilidades.join(", ") : aluno.habilidades) : 'Não informadas'}</p>
         </div>
     `;
 

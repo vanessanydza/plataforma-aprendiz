@@ -13,64 +13,64 @@ function inicializarSistema() {
         
         const alunosDeTeste = [
             {
-                nome: "Ana Beatriz Silva",
-                idade: 17,
+                nome: "Ana Carolina Souza",
+                idade: 19,
                 cpf: "111.222.333-44",
-                email: "ana.beatriz@email.com",
-                celular: "(11) 98765-4321",
-                area: "TI (Tecnologia da Informação)",
-                curso_periodo: "Técnico em Informática - 3º Ano",
+                endereco: "Rua Dezenove de Novembro, 120 - Centro, Pinhais - PR",
+                email: "ana.carol@email.com",
+                area: "Desenvolvimento Front-end",
+                curso_periodo: "Análise de Sistemas - 2º Período",
                 idiomas: "Inglês Intermediário",
-                habilidades: ["HTML5", "CSS3", "JavaScript", "Lógica de Programação"],
+                habilidades: ["HTML", "CSS", "JavaScript", "React"],
                 avaliacoes: { comunicacao: 5, proatividade: 4, trabalhoEquipe: 5 }
             },
             {
-                nome: "Marcos Oliveira",
-                idade: 16,
-                cpf: "222.333.444-55",
-                email: "marcos.m@email.com",
-                celular: "(41) 97766-5544",
-                area: "Marketing",
-                curso_periodo: "Ensino Médio - 2º Ano",
-                idiomas: "Espanhol Básico",
-                habilidades: ["Redes Sociais", "Canva", "Escrita Criativa"],
-                avaliacoes: { comunicacao: 4, proatividade: 5, trabalhoEquipe: 3 }
-            },
-            {
-                nome: "Larissa Souza",
-                idade: 16,
-                cpf: "333.444.555-66",
-                email: "lari.design@email.com",
-                celular: "(41) 96655-4433",
-                area: "Design",
-                curso_periodo: "Técnico em Admnistração - 2º Ano",
-                idiomas: "Inglês Básico",
-                habilidades: ["Desenho à mão", "Photoshop", "Criatividade"],
-                avaliacoes: { comunicacao: 3, proatividade: 4, trabalhoEquipe: 4 }
-            },
-            {
-                nome: "João Pedro Costa",
-                idade: 15,
-                cpf: "444.555.666-77",
-                email: "jp.financas@email.com",
-                celular: "(41) 96432-1516",
-                area: "Finanças",
-                curso_periodo: "Técnico em Adm - 1º Ano",
-                idiomas: "Inglês Avançado",
-                habilidades: ["Excel Avançado", "Matemática Financeira"],
-                avaliacoes: { comunicacao: 4, proatividade: 3, trabalhoEquipe: 5 }
-            },
-            {
-                nome: "Camila Rocha",
-                idade: 17,
+                nome: "Lucas Gabriel Santos",
+                idade: 21,
                 cpf: "555.666.777-88",
-                email: "camila.rh@email.com",
-                celular: "(41) 91236-4433",
-                area: "Recursos Humanos",
-                curso_periodo: "Ensino Médio - 3º Ano",
-                idiomas: "Nenhum",
-                habilidades: ["Organização", "Empatia", "Boa Comunicação"],
-                avaliacoes: { comunicacao: 5, proatividade: 4, trabalhoEquipe: 4 }
+                endereco: "Av. Iraí, 1540 - Weissópolis, Pinhais - PR",
+                email: "lucas.gabriel@email.com",
+                area: "Suporte Técnico / Infra",
+                curso_periodo: "Redes de Computadores - 4º Período",
+                idiomas: "Inglês Básico",
+                habilidades: ["Hardware", "Linux", "Windows Server", "Redes"],
+                avaliacoes: { comunicacao: 3, proatividade: 5, trabalhoEquipe: 4 }
+            },
+            {
+                nome: "Mariana Oliveira",
+                idade: 18,
+                cpf: "999.888.777-66",
+                endereco: "Rua XV de Novembro, 450 - Centro, Curitiba - PR",
+                email: "mari.oliveira@email.com",
+                area: "Design UI/UX",
+                curso_periodo: "Design Digital - 1º Período",
+                idiomas: "Inglês Avançado",
+                habilidades: ["Figma", "Adobe XD", "Photoshop", "CSS"],
+                avaliacoes: { comunicacao: 5, proatividade: 4, trabalhoEquipe: 3 }
+            },
+            {
+                nome: "Matheus Henrique",
+                idade: 20,
+                cpf: "444.333.222-11",
+                endereco: "Rua Jacob Macanhan, 800 - Atuba, Pinhais - PR",
+                email: "matheus.h@email.com",
+                area: "Desenvolvimento Back-end",
+                curso_periodo: "Engenharia de Software - 3º Período",
+                idiomas: "Espanhol Básico",
+                habilidades: ["Python", "Node.js", "SQL", "Git"],
+                avaliacoes: { comunicacao: 4, proatividade: 4, trabalhoEquipe: 5 }
+            },
+            {
+                nome: "Beatriz Ferreira",
+                idade: 19,
+                cpf: "222.444.666-88",
+                endereco: "Rua Sete de Setembro, 2100 - Batel, Curitiba - PR",
+                email: "bia.ferreira@email.com",
+                area: "Análise de Dados",
+                curso_periodo: "Sistemas de Informação - 2º Período",
+                idiomas: "Inglês Fluente",
+                habilidades: ["Excel Avançado", "Power BI", "Python", "Estatística"],
+                avaliacoes: { comunicacao: 5, proatividade: 3, trabalhoEquipe: 4 }
             }
         ];
 
