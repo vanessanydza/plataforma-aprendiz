@@ -9,9 +9,12 @@
 <body>
 
 <nav class="top-nav">
-  <a href="index.html" class="btn-voltar">← Voltar</a>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px;">
+    
+    <a href="index.html" class="btn-voltar">← Voltar</a>
 
-  <button onclick="logout()" class="btn-voltar" style="background: var(--escuro); color: white;">Sair</button>
+    <button onclick="logout()" class="btn-voltar" style="background: var(--escuro); color: white; margin: 0;">Sair</button>
+  </div>
 
   <script>
   function logout() {
@@ -31,10 +34,10 @@
   </p>
 
   <form id="formAluno">
-    <input type="text" id="nome" placeholder="Nome" required>
+    <input type="text" id="nome" placeholder="Nome Completo" required>
     <input type="number" id="idade" placeholder="Idade" required>
     <input type="text" id="cpf" placeholder="CPF" required>
-    <input type="text" id="endereco" placeholder="Endereço" required>
+    <input type="text" id="endereco" placeholder="Endereço, nº, Bairro" required>
     <input type="email" id="email" placeholder="E-mail" required>
     <input type="tel" id="celular" class="input-padrao" placeholder="(00) 00000-0000" required>
     <input type="text" id="curso_periodo" placeholder="Curso / Período" required>
@@ -60,7 +63,7 @@
 
   <section class="cursos-tags">
     <h3>Não tem experiência ainda?</h3>
-    <p>Esses cursos gratuitos ajudam a dar o primeiro passo:</p>
+    <p>Esses cursos, ajudam a dar o primeiro passo:</p>
 
     <div class="tags">
       <a href="https://www.cursoemvideo.com/" target="_blank">Curso em Vídeo</a>

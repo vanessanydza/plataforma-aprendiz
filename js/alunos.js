@@ -1,8 +1,8 @@
-// js/alunos.js
+// Cadastro de Alunos
 
 document.getElementById("formAluno").addEventListener("submit", function (e) {
   e.preventDefault();
-
+  // Segurança: Verifica se o usuário logado é "escola" antes de permitir o cadastro
   (function verificarSeguranca() {
     const perfilLogado = localStorage.getItem("usuarioLogado");
     const paginaAtual = window.location.pathname;
@@ -49,7 +49,7 @@ document.getElementById("formAluno").addEventListener("submit", function (e) {
       ? habilidadesInput.split(",").map(h => h.trim())
       : [],
 
-    // NOVO: Estrutura inicial para a avaliação pedagógica da escola
+    // Estrutura inicial para a avaliação pedagógica da escola
     // Começa com 0 para indicar que ainda não foi avaliado
     avaliacoes: {
       comunicacao: 0,
@@ -65,7 +65,7 @@ document.getElementById("formAluno").addEventListener("submit", function (e) {
   localStorage.setItem("alunos", JSON.stringify(alunos));
 
   // 5. Feedback e Limpeza
-  alert("Aluno cadastrado com sucesso! A escola já pode realizar a avaliação pedagógica.");
+  alert("Aluno cadastrado com sucesso! Aguarde contato da empresa para sua entrevista.");
   this.reset();
 });
 

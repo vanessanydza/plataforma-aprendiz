@@ -9,17 +9,19 @@
 <body>
 
 <nav class="top-nav">
-  <a href="index.html" class="btn-voltar">← Voltar</a>
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px;">
+    
+    <a href="index.html" class="btn-voltar">← Voltar</a>
 
-  <button onclick="logout()" class="btn-voltar" style="background: var(--escuro); color: white;">Sair</button>
+    <button onclick="logout()" class="btn-voltar" style="background: var(--escuro); color: white; margin: 0;">Sair</button>
+  </div>
 
   <script>
-    function logout() {
+  function logout() {
       localStorage.removeItem("usuarioLogado");
       window.location.href = "login.html";
-    }
+  }
   </script>
-
 </nav>
 
 <h2>Perfis de Alunos</h2>

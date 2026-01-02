@@ -7,9 +7,22 @@
   <script src="js/validacao.js"></script>
 </head>
 <body>
-  <nav class="top-nav">
+<nav class="top-nav">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px;">
+    
     <a href="index.html" class="btn-voltar">← Voltar</a>
-  </nav>
+
+    <button onclick="logout()" class="btn-voltar" style="background: var(--escuro); color: white; margin: 0;">Sair</button>
+  </div>
+
+  <script>
+    function logout() {
+        localStorage.removeItem("usuarioLogado");
+        localStorage.removeItem("alunoSelecionado");
+        window.location.href = "login.html";
+    }
+  </script>
+</nav>
 
   <h2>Panorama da Escola</h2>
 

@@ -1,7 +1,7 @@
-// js/aluno-detalhe.js
+// Detalhe do Aluno
 
 /**
- * 1. GUARDIÃO DE SEGURANÇA (Executa IMEDIATAMENTE)
+ * 1. GUARDIÃO DE SEGURANÇA 
  * Verifica se há um usuário logado antes de mostrar qualquer dado.
  */
 (function verificarSeguranca() {
@@ -16,21 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const aluno = JSON.parse(localStorage.getItem("alunoSelecionado"));
     const perfilLogado = localStorage.getItem("usuarioLogado");
     const deOndeVim = document.referrer; 
-    
+    // Elementos do DOM
     const btnVoltar = document.getElementById("btnVoltarDinamico");
     const containerInfo = document.getElementById("detalheAluno");
     const areaAvaliacaoEscola = document.getElementById("areaExclusivaEscola");
     const canvasRadar = document.getElementById("graficoRadarIndividual");
     const msgAviso = document.getElementById("msgAvisoAvaliacao");
-
+    // Segurança: Verifica se o aluno existe
     if (!aluno) {
         if (containerInfo) containerInfo.innerHTML = "<p>Aluno não encontrado.</p>";
         return;
     }
 
-    /**
-     * 2. LÓGICA DO BOTÃO VOLTAR
-     */
+    /*** 2. LÓGICA DO BOTÃO VOLTAR***/
     if (perfilLogado === "escola") {
         btnVoltar.href = "escola.html";
         btnVoltar.innerText = "← Voltar para Gestão Escolar";
@@ -39,9 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btnVoltar.innerText = "← Voltar para Lista de Talentos";
     }
 
-  /**
-     * 3. RENDERIZAÇÃO DOS DADOS DO PERFIL
-     */
+  /*** 3. RENDERIZAÇÃO DOS DADOS DO PERFIL***/
     containerInfo.innerHTML = `
         <div class="perfil-info">
             <p><strong>Nome:</strong> ${aluno.nome}</p>

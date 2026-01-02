@@ -1,5 +1,4 @@
 /**
- * js/dashboard.js
  * Gerenciamento de Dashboards, KPIs e Segurança do Painel Escolar
  */
 
@@ -83,14 +82,14 @@ function renderizarGraficoAlternavel(tipo) {
             // Tenta buscar o campo em várias nomenclaturas possíveis por segurança
             let campoBruto = aluno.habilidades || aluno.habilidade || aluno.skills || "";
             let listaHabs = [];
-
+            // Normaliza o campo para uma lista
             if (Array.isArray(campoBruto)) {
                 listaHabs = campoBruto;
             } else if (typeof campoBruto === 'string') {
                 // Divide por vírgula, ponto e vírgula ou espaço e remove vazios
                 listaHabs = campoBruto.split(/[,;]+/).map(h => h.trim()).filter(h => h !== "");
             }
-
+            // Conta cada habilidade
             listaHabs.forEach(hab => {
                 const h = hab.toUpperCase(); 
                 if (h) {

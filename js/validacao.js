@@ -14,7 +14,8 @@ function verificarAcesso() {
     const paginasPublicas = [
         "index.html", 
         "login.html", 
-        "cadastro.html", // se você tiver uma página de cadastro
+        "cadastro.html",
+        "dicas.html", // se você tiver uma página de dicas
         "/"              // Representa a raiz (home) do site no GitHub Pages
     ];
 
