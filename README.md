@@ -1,65 +1,63 @@
-# 🚀 Plataforma Menor Aprendiz: Conexão & Soft Skills
-
+🚀 Plataforma Menor Aprendiz: Conexão & Soft Skills
 Uma plataforma web completa desenvolvida para facilitar a inserção de jovens no mercado de trabalho, focando na integração entre o desempenho escolar e o recrutamento empresarial.
 
+📋 Visão Geral
+O diferencial deste projeto é a avaliação pedagógica de Soft Skills. As instituições de ensino validam o perfil comportamental do aluno (Comunicação, Proatividade e Trabalho em Equipe), gerando um Gráfico de Radar que auxilia as empresas na tomada de decisão. Além disso, a plataforma oferece suporte ao aluno com curadoria de cursos e guias de carreira.
 
+✨ Funcionalidades e Perfis
+🎓 Aluno
+Cadastro de Perfil: Registro de dados pessoais, endereço (para cálculo de logística/VT), contatos e áreas de interesse.
 
-## 📋 Visão Geral
-O diferencial deste projeto é a **avaliação pedagógica de Soft Skills**. As instituições de ensino validam o perfil comportamental do aluno (Comunicação, Proatividade e Trabalho em Equipe), gerando um **Gráfico de Radar** que auxilia as empresas na tomada de decisão.
+Capacitação: Acesso a links de cursos gratuitos para fortalecer o currículo inicial.
 
-## ✨ Funcionalidades e Perfis
+Preparação para o Mercado: Página exclusiva de Dicas de Entrevista, com orientações sobre linguagem corporal, "pitch" pessoal e perguntas frequentes.
 
-### 🎓 Aluno
-- **Cadastro de Perfil:** Registro de dados pessoais, contatos (celular/e-mail) e áreas de interesse.
-- **Capacitação:** Acesso a links de cursos gratuitos para fortalecer o currículo inicial.
+🏫 Escola (Gestão Pedagógica)
+Dashboard de Controle: Monitoramento de KPIs (Total de alunos e Top 10 habilidades técnicas).
 
-### 🏫 Escola (Gestão Pedagógica)
-- **Dashboard de Controle:** Monitoramento de KPIs (Total de alunos e habilidades).
-- **Avaliação de Talentos:** Painel exclusivo para atribuição de notas comportamentais e geração do gráfico de radar.
+Avaliação de Talentos: Painel exclusivo para atribuição de notas comportamentais e geração automática do gráfico de radar.
 
-### 🏢 Empresa (Recrutamento)
-- **Banco de Talentos:** Filtros dinâmicos por área de atuação.
-- **Análise Comportamental:** Visualização do gráfico de radar e acesso direto aos contatos (WhatsApp/E-mail) para agendamento de entrevistas.
+🏢 Empresa (Recrutamento)
+Banco de Talentos: Filtros dinâmicos e visualização de perfis.
 
----
+Análise de Logística: Visualização do endereço do aluno para cálculo de custos de deslocamento.
 
-## 🔐 Segurança e Acesso
-O projeto utiliza um sistema de autenticação simulado via **LocalStorage**:
-- **Guardião de Rotas (`auth.js`):** Valida se o perfil logado tem permissão para acessar a página solicitada, impedindo acessos via URL direta.
-- **Privacidade (LGPD):** Os dados são armazenados localmente no navegador, respeitando a minimização de dados e finalidade específica.
+Análise Comportamental: Visualização do gráfico de radar e acesso direto aos contatos para agendamento de entrevistas.
 
+💡 Conteúdo Educacional (Novo)
+A plataforma conta com uma página dedicada de Dicas de Entrevista (dicas.html), acessível a todos os usuários, que aborda:
 
+Apresentação Pessoal: Como estruturar a fala inicial.
 
----
+Pesquisa Prévia: A importância de conhecer a empresa contratante.
 
-## 🧪 Dados para Demonstração (Seed)
-Para facilitar a avaliação técnica, o sistema conta com um script de **Auto-População (`seed.js`)**. Ao abrir o projeto pela primeira vez, os seguintes perfis de teste são carregados:
+Linguagem Corporal: Postura e confiança durante processos seletivos presenciais ou online.
 
-- **Logins Padrão:**
-  - **Escola:** Usuário `professor` | Senha `123`
-  - **Empresa:** Usuário `empresa` | Senha `123`
-  - **Aluno:** Usuário `aluno` | Senha `123`
+🔐 Segurança e Acesso
+O projeto utiliza um sistema de autenticação simulado via LocalStorage:
 
-- **Alunos Cadastrados:** Perfis prontos em TI, Marketing, Design e RH com avaliações pedagógicas já realizadas.
+Guardião de Rotas (auth.js): Valida se o perfil logado tem permissão para acessar páginas restritas, permitindo acesso livre apenas para as páginas públicas (index, cadastro, login e dicas).
 
----
+Gestão de Sessão: Botão de logout estratégico para garantir a privacidade dos dados ao alternar entre perfis.
 
-## 🛠️ Tecnologias Utilizadas
-- **HTML5 & CSS3:** Estrutura semântica e layout responsivo.
-- **Bootstrap 5:** Navbar e componentes de interface.
-- **JavaScript (Vanilla):** Lógica de autenticação e manipulação do DOM.
-- **Chart.js:** Gráficos de Radar e Dashboards.
-- **LocalStorage API:** Persistência de dados local.
+🧪 Dados para Demonstração (Seed)
+Para facilitar a avaliação técnica, o sistema conta com um script de Auto-População (seed.js). Os perfis de teste incluem endereços reais e avaliações completas:
 
----
+Logins Padrão:
 
-## 🚀 Como Executar
-1. Clone o repositório ou baixe os arquivos.
-2. Certifique-se de manter a estrutura de pastas:
-   - `/css`
-   - `/js`
-   - `index.html`, `login.html`, etc.
-3. Abra o arquivo `index.html` em qualquer navegador moderno.
+Escola: Usuário professor | Senha 123
 
----
-*Projeto desenvolvido para fins acadêmicos - 2025*
+Empresa: Usuário empresa | Senha 123
+
+Aluno: Usuário aluno | Senha 123
+
+🛠️ Tecnologias Utilizadas
+HTML5 & CSS3: Estrutura semântica com layout responsivo e alinhamento via Flexbox.
+
+JavaScript (Vanilla): Lógica de autenticação, filtros e manipulação dinâmica do DOM.
+
+Chart.js: Gráficos de Radar (Soft Skills) e Gráficos de Barra (Top Habilidades).
+
+LocalStorage API: Persistência de dados local para simulação de banco de dados.
+
+Projeto desenvolvido para fins acadêmicos - 2026
